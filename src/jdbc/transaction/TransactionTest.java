@@ -30,7 +30,7 @@ public class TransactionTest {
         try {
             connection = JDBCUtils.getConnect();
             //第一条SQL语句
-            //默认情况下如果这条SQL语句执行成功,那么就会提交到数据库,数据库内容随之发生改变
+            //默认情况下如果这条SQL语句执行成功,那么就会自动提交到数据库,数据库内容随之发生改变
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.executeUpdate();
 
