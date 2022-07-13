@@ -43,7 +43,7 @@ public class C3P0Test {
         comboPooledDataSource.setMaxPoolSize(50);
         //建立连接
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 5000; i++) {
+        for (int i = 0; i < 500000; i++) {
             Connection connection = comboPooledDataSource.getConnection();
             connection.close();
         }
@@ -62,7 +62,7 @@ public class C3P0Test {
         ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource("mySource");
 
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 5000; i++) {
+        for (int i = 0; i < 500000; i++) {
             Connection connection = comboPooledDataSource.getConnection();
             connection.close();
         }
