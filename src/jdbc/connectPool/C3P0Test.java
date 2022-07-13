@@ -1,7 +1,6 @@
-package connectPool;
+package jdbc.connectPool;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import jdbc.utils.JDBCUtils;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileInputStream;
