@@ -24,5 +24,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="mysql-connector-java-5.1.7-bin" level="project" />
+    <orderEntry type="library" name="c3p0-0.9.5.5" level="project" />
+    <orderEntry type="library" name="mchange-commons-java-0.2.19" level="project" />
   </component>
 </module>

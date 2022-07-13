@@ -9,6 +9,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ * C3P0连接池
+ */
 public class C3P0Test {
     /**
      * 方式一
