@@ -35,6 +35,7 @@ public class BatchTest {
     @Test
     public void useBatch() throws Exception {
         Connection connection = JDBCUtils.getConnect();
+        connection.setAutoCommit(false);
         String sql = "INSERT INTO admin VALUES(null,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         System.out.println("开始执行");
@@ -50,6 +51,7 @@ public class BatchTest {
                 preparedStatement.executeBatch();
                 preparedStatement.clearBatch();
             }
+            connection.commit();
         }
 
 
