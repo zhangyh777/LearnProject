@@ -3,6 +3,10 @@ package jdbc;
 /**
  * 封装
  * JavaBean
+ * 1.public修饰的Java类
+ * 2.必须提供一个默认的无参构造函数。
+ * 3.所有属性都是private
+ * 4.提供所有属性的get和set方法
  */
 public class Person {
     private Integer id;
@@ -23,6 +27,14 @@ public class Person {
 
     public String getName() {
         return name;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
