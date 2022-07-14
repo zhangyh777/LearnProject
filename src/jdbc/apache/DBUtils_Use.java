@@ -11,6 +11,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * QueryRunner核心类
+ * 主要需要用的方法
+ * update(Connection conn, String sql, Object... params) ，用来完成表数据的增加、删除、更新操作
+ * query(Connection conn, String sql, ResultSetHandler<T> rsh, Object... params) ，用来完成表数据的查询操作
+ */
 public class DBUtils_Use {
 
     /**
@@ -32,7 +38,7 @@ public class DBUtils_Use {
         Connection conn:连接
         String sql:SQL语句
         Object... params:变长参数,为SQL语句里的?赋值
-        ResultSetHandler<T> rsh：
+        ResultSetHandler<T> rsh：用于定义select操作后，怎样封装结果集.
         ArrayHandler:把结果集中的第一行数据封装成Object[]。
         ArrayListHandler:把结果集中的每一行数据都封装成数组（数组类型通过反射指定），再存放到List中。
         BeanHandler:将结果集中的第一行数据封装到一个对应的JavaBean实例中。
