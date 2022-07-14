@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class IDBCUtilsTest {
 
     public static void main(String[] args) {
-        //testDML();
+//        testDML();
         testSelect();
     }
     public static void testDML() {//INSERT,DELETE,UPDATE...
@@ -23,6 +23,9 @@ public class IDBCUtilsTest {
 
         try {
             connection = JDBCUtils.getConnect();
+            //com.mysql.jdbc.JDBC4Connection
+            System.out.println(connection.getClass());
+
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, "777");
             preparedStatement.setString(2, "clearlove");
