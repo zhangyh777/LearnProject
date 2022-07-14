@@ -38,7 +38,7 @@ public class DBUtils_Use {
         BeanHandler:将结果集中的第一行数据封装到一个对应的JavaBean实例中。
         BeanListHandler:将结果集中的每一行数据都封装到一个对应的JavaBean实例中，存放到List里。
         ColumnListHandler:将结果集中指定列的数据存放到List中。
-        ScalarHandler：它是用于单数据。
+        ScalarHandler：它是用于单数据,将数据库中某一个字段的数据封装成一个Object对象。
         KeyedHandler(name):将结果集中的每行数据都封装到Map里，再把这些map再存到一个map里，其key为指定的key.
         MapHandler:将结果集中的第一行数据封装到一个Map里，key是列名，value就是对应的值。
         MapListHandler:将结果集中的每一行数据都封装到一个Map里，然后再存放到List
@@ -46,14 +46,14 @@ public class DBUtils_Use {
         */
         List<Person> list =
                 queryRunner.query(connection,
-                                sql,
-                                new BeanListHandler<>(Person.class),
-                                777);
-        for (Person p:list
-             ) {
+                        sql,
+                        new BeanListHandler<>(Person.class),
+                        777);
+        for (Person p : list
+        ) {
             System.out.println(p);
         }
-        JDBCUtilsByDruid.closeConnect(null,null,connection);
+        JDBCUtilsByDruid.closeConnect(null, null, connection);
 
     }
 
@@ -69,15 +69,27 @@ public class DBUtils_Use {
         //ScalarHandler的作用是将数据库中某一个字段的数据封装成一个Object对象
         Object query = queryRunner.query(connection, sql, new ScalarHandler<>(), 777);
         System.out.println(query);
-        JDBCUtilsByDruid.closeConnect(null,null,connection);
-
+        JDBCUtilsByDruid.closeConnect(null, null, connection);
     }
 
     /**
-     *
+     * queryRunner.update()来对MySQL执行DML操作（insert,delete,update）
+     * 返回值是表中受影响的行数
      */
     @Test
-    public void testDML(){
+    public void testDML() throws SQLException {
+        Connection connection = JDBCUtilsByDruid.getConnect();
 
+        QueryRunner queryRunner = new QueryRunner();
+
+        String sql = "UPDATE t1 SET name = ? WHERE id = ? ";
+        int affectedRows = queryRunner.update(connection,sql,"clearlove7",777);
+
+        if (affectedRows>0){
+            System.out.println("!!!");
+        }else {
+            System.out.println("???");
+        }
+        JDBCUtilsByDruid.closeConnect(null,null,connection);
     }
 }
