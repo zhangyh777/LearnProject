@@ -52,7 +52,7 @@ public class TransactionTest {
     public void USETransaction(){
         Connection connection = null;
         String sql = "UPDATE account SET balance = balance - 100 WHERE id = 1";
-        String sql2 = "UPDATE account set balance = balance + 100 WHERE id = 2";
+        String sql2 = "UPDATE account SET balance = balance + 100 WHERE id = 2";
         PreparedStatement preparedStatement = null;
         try {
             connection = JDBCUtils.getConnect();
